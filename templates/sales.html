@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/img/test.ico">
+
+    <title>Graduation project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/starcover.css" rel="stylesheet">
+    <link href="../static/css/startscrapycarousel.css" rel="stylesheet">
+    <script src="../static/js/dist/echarts.min.js"></script>
+    <script src="../static/js/dark.js"></script>
+    <script src="../static/js/halloween.js"></script>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Graduation project</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Features<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="scrapy">数据采集</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">数据可视化分析</li>
+                                <li><a href="star">评分</a></li>
+                                <li><a href="sales">销量</a></li>
+                                <li><a href="emotion">情感</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="inner cover">
+
+
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">
+                            年销量对比
+                        </a>
+                    </li>
+                    <li><a href="#ios" data-toggle="tab">月销量对比</a></li>
+                    <li><a href="#star" data-toggle="tab">星级数量</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="myTabDrop1" class="dropdown-toggle"
+                           data-toggle="dropdown">其他
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                            <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
+                            <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <div id="yearmain" style="width: 600px; height: 400px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myYearChart = echarts.init(document.getElementById('yearmain'),'dark');
+
+                            myYearOption = {
+                                title: {
+                                    text: ''
+                                },
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {
+                                        type: 'shadow'
+                                    }
+                                },
+                                legend: {
+                                    data: ['销量']
+                                },
+                                grid: {
+                                    left: '3%',
+                                    right: '4%',
+                                    bottom: '3%',
+                                    containLabel: true
+                                },
+                                xAxis: {
+                                    type: 'value',
+                                    boundaryGap: [0, 0.01]
+                                },
+                                yAxis: {
+                                    type: 'category',
+                                    data: [{% for y in years %}'{{ y }}', {% endfor %}]
+                                },
+                                series: [
+                                    {
+                                        name: '销量',
+                                        type: 'bar',
+                                        data: [{% for ys in yearSaleList %}{{ ys }}, {% endfor %}]
+                                    },
+                                ]
+                            };
+
+                            myYearChart.setOption(myYearOption);
+
+
+
+                        </script>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="ios">
+
+
+                        <div id="main" style="width: 600px; height: 400px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('main'),'dark');
+
+                            myOption = {
+                                title: {
+                                    text: ''
+                                },
+                                tooltip: {
+                                    trigger: 'axis'
+                                },
+                                legend: {
+                                    data: [{% for y in years %}'{{ y }}', {% endfor %}]
+                                },
+                                grid: {
+                                    left: '3%',
+                                    right: '4%',
+                                    bottom: '3%',
+                                    containLabel: true
+                                },
+                                toolbox: {
+                                    feature: {
+                                        saveAsImage: {}
+                                    }
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: [{% for month in vdsdictMonthListCN %}'{{ month }}', {% endfor %}]
+                                },
+                                yAxis: {
+                                    type: 'value'
+                                },
+                                series: [
+                                        {% for yy in monSaleDict.keys() %}{
+                                            name: {{ yy }},
+                                            type: 'line',
+                                            data: {{ monSaleDict[yy] }},
+                                            symbol: 'circle',
+                                            symbolSize: 1
+                                            }, {% endfor %}
+                                ]
+                            };
+
+                            myChart.setOption(myOption);
+                        </script>
+
+
+                    </div>
+
+
+                <div class="tab-pane fade" id="star">
+                <div id="StarMain" style="width: 600px; height: 400px;"></div>
+                <script type="text/javascript">
+                    // 基于准备好的dom，初始化echarts实例
+                    var myStarChart = echarts.init(document.getElementById('StarMain'), 'dark');
+
+                    myStarOption = {
+                        color: ['#5daeaf'],
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '3%',
+                            containLabel: true
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: [{% for g in gradeList %}'{{ g }}', {% endfor %}],
+                                axisTick: {
+                                    alignWithLabel: true
+                                }
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '评价数量',
+                                type: 'bar',
+                                barWidth: '50%',
+                                data: [{% for c in countList %}'{{ c }}', {% endfor %}]
+                            }
+                        ]
+                    };
+
+                    myStarChart.setOption(myStarOption);
+                </script>
+                </div>
+
+
+
+                    <div class="tab-pane fade" id="jmeter">
+                        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                    </div>
+                    <div class="tab-pane fade" id="ejb">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE
+                            上。
+                        </p>
+                    </div>
+                </div>
+
+
+                {#                <h1 class="cover-heading">月销量对比</h1>#}
+
+            </div>
+
+            <!-- Marketing messaging and featurettes
+            ================================================== -->
+            <!-- Wrap the rest of the page in another container to center all the content. -->
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>&copy; Stay Hungry,Stay Foolish &middot; <a href="#">@yjy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

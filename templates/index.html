@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/img/test.ico">
+
+    <title>Graduation project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/carousel.css" rel="stylesheet">
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Graduation project</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">Features<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="scrapy">数据采集</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">数据可视化分析</li>
+                                <li><a href="star">评分</a></li>
+                                <li><a href="sales">销量</a></li>
+                                <li><a href="emotion">情感</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide" src="../static/img/aerial-shot.jpg" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>亚马逊商品评价数据采集与分析</h1>
+                    <p>基于Scarpy+LSTM+Flask</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Start!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="second-slide" src="../static/img/bay-by.jpg" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>亚马逊商品评价数据采集与分析</h1>
+                    <p>基于Scarpy+LSTM+Flask</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Start!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img class="third-slide" src="../static/img/architecture-asphalt.jpg" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>亚马逊商品评价数据采集与分析</h1>
+                    <p>基于Scarpy+LSTM+Flask</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Start!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div><!-- /.carousel -->
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <img class="img-circle" src="../static/img/spider.jpg" alt="Generic placeholder image" width="140"
+                 height="140">
+            <h2>Scrapy</h2>
+            <p>爬取用户名称，购买日期，评论内容等数据</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="../static/img/data.jpg" alt="Generic placeholder image" width="140"
+                 height="140">
+            <h2>Data</h2>
+            <p>进行数据存储及数据清洗</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img class="img-circle" src="../static/img/analysis.jpg" alt="Generic placeholder image" width="140"
+                 height="140">
+            <h2>Analysis</h2>
+            <p>对得到的有效评论进行文本分析</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">First,clear your mind.<br>
+                <span class="text-muted">Determine the commodity.</span></h2>
+            <p class="lead">第一步，确定需要分析的商品。<br>电子配件，摄影，食品，生鲜，酒水，服装，箱包，图书...<br>并获取它的亚马逊链接。</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="../static/img/shopping.jpg"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+            <h2 class="featurette-heading">Be patient and wait.<br><span class="text-muted">Just wait...</span>
+            </h2>
+            <p class="lead">在此期间，系统会根据您所提供的链接进行数据抓取与分析，<br>
+                生成基于评分，销量，评论情感等趋势图表，<br>
+                此过程需要您的耐心等待...
+            </p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+            <img class="featurette-image img-responsive center-block" src="../static/img/sandglass.jpg"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Last but not least,<br><span class="text-muted">Follow your heart.</span>
+            </h2>
+            <p class="lead">最后，<br>
+                此数据分析结果仅供参考...
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="../static/img/getresult.jpg"
+                 alt="Generic placeholder image">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Stay Hungry,Stay Foolish &middot; <a href="#">@yjy</a></p>
+    </footer>
+
+</div><!-- /.container -->
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eel Demo</title>
+        <script type='text/javascript' src='/eel.js'></script>
+        <script type='text/javascript'>
+        function view_emotion() {
+            eel.show_Emotion()
+            window.location.reload();
+        }
+        function view_star() {
+            eel.show_StarLine()
+            window.location.reload();
+        }
+        </script>
+    </head>
+
+    <body>
+        <a href='javascript:void()' onclick='view_emotion()'>情感分析可视化数据显示</a>
+        <img src="pieEmotion.png"  alt="情感分析饼状图" width="60%"/>
+        <a href='javascript:void()' onclick='view_star()'>星级分析可视化数据显示</a>
+        <img src="lineStar.png"  alt="星级分析折线图" width="60%"/>
+    </body>
+</html>
